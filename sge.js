@@ -38,6 +38,8 @@ document.getElementById("myform").addEventListener("submit", function (e) {
     let score = Number(result);
     let grade = "";
 
+    document.getElementById("grade").style.color = "green";
+
     if (score >= 70 && score <= 100) {
       grade = "A";
     } else if (score >= 60 && score <= 69) {
@@ -48,13 +50,16 @@ document.getElementById("myform").addEventListener("submit", function (e) {
       grade = "D";
     } else if (score >= 40 && score <= 44) {
       grade = "E";
-    } else if (score >= 0 && score <= 39) {
+    } else if (score >= 0 && score <= 39.9) {
       grade = "F";
+      document.getElementById("result").style.color = "red";
+      document.getElementById("grade").style.color = "red";
     } else {
       grade = "Invalid score";
+      document.getElementById("grade").style.color = "red";
+
     }
 
     document.getElementById("grade").innerHTML = `Your grade is ${grade}`;
-    document.getElementById("grade").style.color = "green";
   }
 });
